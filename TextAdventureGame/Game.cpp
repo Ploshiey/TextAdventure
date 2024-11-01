@@ -1,5 +1,13 @@
 #include <string>
+#include <iostream>
 using namespace std;
+
+struct item
+	{
+		string name;
+		float damage;
+		string effects;
+	};
 
 struct Room
 {
@@ -12,14 +20,19 @@ struct Room
 		float damage;
 		string type;
 	};
-	struct item
-	{
-		string name;
-		float damage;
-		string effects;
-	};
+	item reward;
 };
 
+struct Player
+{
+	float health;
+	float damage;
+	item heldItem;
+};
 
+int main()
+{
+	
+}
 
 

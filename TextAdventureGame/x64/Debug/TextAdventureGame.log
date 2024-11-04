@@ -1,3 +1,24 @@
 ﻿  Game.cpp
-C:\Users\maxke\source\repos\TextAdventureGame\TextAdventure\TextAdventureGame\Game.cpp(167,43): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\maxke\source\repos\TextAdventureGame\TextAdventure\TextAdventureGame\Game.cpp(428,29): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\maxke\source\repos\TextAdventureGame\TextAdventure\TextAdventureGame\Game.cpp(431,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\maxke\source\repos\TextAdventureGame\TextAdventure\TextAdventureGame\Game.cpp(437,30): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\maxke\source\repos\TextAdventureGame\TextAdventure\TextAdventureGame\Game.cpp(441,30): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\maxke\source\repos\TextAdventureGame\TextAdventure\TextAdventureGame\Game.cpp(445,19): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\maxke\source\repos\TextAdventureGame\TextAdventure\TextAdventureGame\Game.cpp(452,30): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\maxke\source\repos\TextAdventureGame\TextAdventure\TextAdventureGame\Game.cpp(456,30): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\maxke\source\repos\TextAdventureGame\TextAdventure\TextAdventureGame\Game.cpp(460,30): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\maxke\source\repos\TextAdventureGame\TextAdventure\TextAdventureGame\Game.cpp(464,30): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\maxke\source\repos\TextAdventureGame\TextAdventure\TextAdventureGame\Game.cpp(468,30): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\maxke\source\repos\TextAdventureGame\TextAdventure\TextAdventureGame\Game.cpp(472,19): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\maxke\source\repos\TextAdventureGame\TextAdventure\TextAdventureGame\Game.cpp(479,30): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\maxke\source\repos\TextAdventureGame\TextAdventure\TextAdventureGame\Game.cpp(483,30): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\maxke\source\repos\TextAdventureGame\TextAdventure\TextAdventureGame\Game.cpp(487,19): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\maxke\source\repos\TextAdventureGame\TextAdventure\TextAdventureGame\Game.cpp(507,32): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\maxke\source\repos\TextAdventureGame\TextAdventure\TextAdventureGame\Game.cpp(510,18): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\maxke\source\repos\TextAdventureGame\TextAdventure\TextAdventureGame\Game.cpp(516,30): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\maxke\source\repos\TextAdventureGame\TextAdventure\TextAdventureGame\Game.cpp(520,30): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\maxke\source\repos\TextAdventureGame\TextAdventure\TextAdventureGame\Game.cpp(524,19): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\maxke\source\repos\TextAdventureGame\TextAdventure\TextAdventureGame\Game.cpp(531,30): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\maxke\source\repos\TextAdventureGame\TextAdventure\TextAdventureGame\Game.cpp(535,30): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\maxke\source\repos\TextAdventureGame\TextAdventure\TextAdventureGame\Game.cpp(539,19): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
   TextAdventureGame.vcxproj -> C:\Users\maxke\source\repos\TextAdventureGame\TextAdventure\x64\Debug\TextAdventureGame.exe

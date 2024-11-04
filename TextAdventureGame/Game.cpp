@@ -64,7 +64,8 @@ public:
 
 	void mover()
 	{
-		cout << "As the dust settles, the room falls still\nSome doors open, allowing you to progress further." << endl;
+		cout << endl << "As the dust settles, the room falls still\nSome doors open, allowing you to progress further." << endl;
+		cout << "which way will you decide to go?" << endl;
 		if (x == 0)
 		{
 			if (y == 0 || y == 1 || y == 2)
@@ -153,24 +154,33 @@ public:
 		cout << "The foe left behind a " << room[x][y].reward.name << "." << endl;
 		if (room[x][y].reward.weapon)
 		{
-			cout << "Would you like to replace your " << player.Weapon.name << " with a " << room[x][y].reward.name << "?" << endl << "y/n" << endl;
-			cin >> input;
-			if (input == 'y')
+			if (player.Weapon.name == "none")
 			{
+				cout << "You pick it up." << endl;
 				player.Weapon = room[x][y].reward;
-			}
-			else if (input == 'n')
-			{
-				cout << "You decide to keep your current weapon." << endl;
 			}
 			else
 			{
-				cout << "You decide to not listen to basic instructions and you're new weapon spontaniously combusts." << endl;
+				cout << "Would you like to replace your " << player.Weapon.name << " with a " << room[x][y].reward.name << "?" << endl << "y/n" << endl;
+				cin >> input;
+				if (input == 'y')
+				{
+					cout << "You pick it up." << endl;
+					player.Weapon = room[x][y].reward;
+				}
+				else if (input == 'n')
+				{
+					cout << "You decide to keep your current weapon." << endl;
+				}
+				else
+				{
+					cout << "You decide to not listen to basic instructions and you're new weapon spontaniously combusts." << endl;
+				}
 			}
 		}
 		else if (room[x][y].reward.effects == "Heal")
 		{
-			if (player.potion.name == "empty bottle")
+			if (player.potion.name == "empty bottle" || player.potion.name == "none")
 			{
 				cout << "You add the " << room[x][y].reward.name << " to your bag." << endl;
 				player.potion = room[x][y].reward;
@@ -182,22 +192,33 @@ public:
 		}
 		else
 		{
-			cout << "Would you like to replace your " << player.shield.name << " with a " << room[x][y].reward.name << "?" << endl << "y/n" << endl;
-			cin >> input;
-			if (input == 'y')
+			if (player.shield.name == "none")
 			{
+				cout << "You pick it up." << endl;
 				player.shield = room[x][y].reward;
-			}
-			else if (input == 'n')
-			{
-				cout << "You decide to keep your current shield." << endl;
 			}
 			else
 			{
-				cout << "You decide to not listen to basic instructions and you're new shield spontaniously combusts." << endl;
+				cout << "Would you like to replace your " << player.shield.name << " with a " << room[x][y].reward.name << "?" << endl << "y/n" << endl;
+				cin >> input;
+				if (input == 'y')
+				{
+					cout << "You pick it up." << endl;
+					player.shield = room[x][y].reward;
+				}
+				else if (input == 'n')
+				{
+					cout << "You decide to keep your current shield." << endl;
+				}
+				else
+				{
+					cout << "You decide to not listen to basic instructions and you're new shield spontaniously combusts." << endl;
+				}
 			}
 		}
 		mover();
+		cout << endl << endl << "As you look around the new room, you notice something moving around in the shadows" << endl;
+		cout << "A " << room[x][y].enemy.name << " lunges out of the darkness to attack you" << endl;
 	}
 };
 playerMovement moves;
@@ -223,7 +244,7 @@ public:
 			break;
 		case 1:
 			enemy.name = "Skelly";
-			enemy.damage = 20;
+			enemy.damage = 10;
 			enemy.health = 15;
 			enemy.type = "Dead";
 			return 
@@ -254,7 +275,7 @@ public:
 		case 4:
 			enemy.name = "Demon";
 			enemy.damage = 20;
-			enemy.health = 100;
+			enemy.health = 60;
 			enemy.type = "Sky";
 			return
 			{
@@ -272,6 +293,10 @@ public:
 			};
 			break;
 		default:
+			enemy.name = "Rat";
+			enemy.damage = 1;
+			enemy.health = 1;
+			enemy.type = "Thief";
 			return enemy;
 			break;
 		}
@@ -360,7 +385,7 @@ public:
 	{
 		if (string == "default")
 		{
-			player.Weapon.name = "wood sword";
+			player.Weapon.name = "none";
 			player.Weapon.damage = 5;
 			player.Weapon.effects = "none";
 			player.Weapon.weapon = true;
@@ -368,6 +393,10 @@ public:
 			player.shield.damage = 0;
 			player.shield.effects = "none";
 			player.shield.weapon = false;
+			player.potion.name = "none";
+			player.potion.damage = 0;
+			player.potion.effects = "none";
+			player.potion.weapon = false;
 		}
 		else if (string == "heal")
 		{
@@ -386,7 +415,6 @@ private:
 	int menuSelect;
 	float baseDamage;
 	float totalDamage;
-	float totalHealth;
 
 public:
 	void fightMenu()
@@ -481,10 +509,11 @@ public:
 			}
 		}
 		room[x][y].enemy.health = room[x][y].enemy.health - totalDamage;
-		cout << "You attack " << room[x][y].enemy.name << " dealing " << totalDamage << "." << endl;
+		cout << "You attack " << room[x][y].enemy.name << " dealing " << totalDamage << " damage." << endl;
 		if (room[x][y].enemy.health > 0)
 		{
-			cout << "The " << room[x][y].enemy.name << "'s health has " << room[x][y].enemy.health << "/" << totalHealth << " remaining." << endl;
+			cout << "The " << room[x][y].enemy.name << " has " << room[x][y].enemy.health << " health remaining." << endl;
+			Damaged();
 		}
 		else if (room[x][y].enemy.health <= 0)
 		{
@@ -495,8 +524,6 @@ public:
 
 	void Damaged()
 	{
-		cout << endl << "As you look around the new room, you notice something moving around in the shadows" << endl;
-		cout << "A " << room[x][y].enemy.name << " lunges out of the darkness to attack you" << endl;
 		baseDamage = room[x][y].enemy.damage;
 		if (player.shield.effects == "none")
 		{
@@ -534,8 +561,16 @@ public:
 		}
 		player.health = player.health - totalDamage;
 		cout << room[x][y].enemy.name << " dealt " << totalDamage << " damage!" << endl;
-		cout << "You have " << player.health << "/300 health remaining" << endl;
-		fightMenu();
+		if (player.health <= 0)
+		{
+			cout << "You unfortunately died a tragic death";
+			exit(420);
+		}
+		else
+		{
+			cout << "You have " << player.health << "/300 health remaining" << endl;
+			fightMenu();
+		}
 	}
 
 	void Heal()
@@ -550,7 +585,9 @@ public:
 			player.health = 300;
 			picker.defaultItems("heal");
 			cout << "You drank the potion and your health has been completely restored" << endl;
+			Damaged();
 		}
+		fightMenu();
 	}
 };
 fights fight;
@@ -569,9 +606,9 @@ void setup()
 	{
 		Enemies[i] = picker.enemyPicker(Enemies[i]);
 	}
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < 4; i++)
 	{
-		for (int j = 0; j < 3; j++)
+		for (int j = 0; j < 4; j++)
 		{
 			room[i][j].enemy = Enemies[k];
 			k++;
@@ -606,6 +643,8 @@ int main()
 		cout << "The door behind you swiftly seals itself behind you" << endl;
 		cout << "You're trapped! Let's just hope there's another exit somewhere in this crypt..." << endl;
 		system("pause");
+		cout << endl << "As you look around the new room, you notice something moving around in the shadows" << endl;
+		cout << "A " << room[x][y].enemy.name << " lunges out of the darkness to attack you" << endl;
 		fight.Damaged();
 }
 
